@@ -1,0 +1,13 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+	<h1 class="text-center mb-3"></h1>
+	{% for question in questions %}
+	<div class="card mb-3">
+		<div class="card-body">
+			<p class="lead">{{ question.title }}</p>
+			<a href="{% url 'polls-options' %}" class="btn btn-primary">Vote Now</a>
+			<a href="#" class="btn btn-secondary">Result</a>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock content %}

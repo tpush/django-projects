@@ -1,0 +1,27 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+	<h2 class="text-center">What is your favourite Python Framwork</h2>
+	<div class="card">
+	  <div class="card-body">
+	  	<form method="POST">
+		    <div class="form-check">
+			  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+			  <label class="form-check-label" for="flexRadioDefault1">
+			    Default radio
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+			  <label class="form-check-label" for="flexRadioDefault2">
+			    Default checked radio
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+			  <label class="form-check-label" for="flexRadioDefault2">
+			    Default checked radio
+			  </label>
+			</div>
+	</form>
+	<a href="#" class="btn btn-primary">Vote Now</a>
+{% endblock content %}
