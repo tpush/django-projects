@@ -1,20 +1,20 @@
 from django.shortcuts import render
-from .models import Question
+from django.views.generic import ListView, DetailView
+from .models import Question, Choice
 
 
 def home(request):
     return render(request, 'polls/home.html')
 
 
-def details(request):
-    context = {
-        'questions': Question.objects.all()
-    }
-    return render(request, 'polls/details.html', context)
+class QuestionListView(ListView):
+    model = Question
+    template_name = 'polls/details.html'
+    context_object_name = 'questions'
 
 
-def options(request):
-    return render(request, 'polls/options.html')
+class ChoiceDetailView(DetailView):  # <app><model>_<viewtype>.html
+    model = Choice
 
 
 def results(request):

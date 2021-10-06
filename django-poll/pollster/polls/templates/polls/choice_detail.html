@@ -1,0 +1,16 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+	<a class="btn btn-secondary btn-sm" href="{% url 'polls-detail' %}">Back To Polls</a>
+	<h2 class="">Avaiable Options</h2>
+	<form class="" method="POST">
+		{% csrf_token %}
+		{% for object in choices %}
+		<div class="">
+			<input type="radio" name="choice" class="form-check-input" id="choice{{ forloop.counter }}"
+			value="{{ choice.id }}"/>
+			<label for="choice{{ forloop.counter }}">{{ object.option }}</label>
+		</div>
+		{% endfor %}
+	</form>
+	<a href="#" class="btn btn-primary">Vote</a>
+{% endblock content  %}
