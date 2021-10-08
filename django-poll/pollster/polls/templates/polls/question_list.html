@@ -1,11 +1,11 @@
 {% extends 'polls/base.html' %}
 {% block content %}
-	<h1 class="text-center mb-3"></h1>
-	{% for question in questions %}
+	<h2 class="text-center mb-3">Poll Questions</h2>
+	{% for question in object_list %}
 	<div class="card mb-3">
 		<div class="card-body">
 			<p class="lead">{{ question.title }}</p>
-			<a href="{% url 'polls-option' choice.id %}" class="btn btn-primary">Vote Now</a>
+			<a href="{% url 'polls-option' question.pk %}" class="btn btn-primary">Vote Now</a>
 			<a href="#" class="btn btn-secondary">Result</a>
 		</div>
 	</div>

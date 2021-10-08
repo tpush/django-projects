@@ -4,13 +4,16 @@
 	<h2 class="">Avaiable Options</h2>
 	<form class="" method="POST">
 		{% csrf_token %}
-		{% for object in choices %}
-		<div class="">
-			<input type="radio" name="choice" class="form-check-input" id="choice{{ forloop.counter }}"
-			value="{{ choice.id }}"/>
-			<label for="choice{{ forloop.counter }}">{{ object.option }}</label>
-		</div>
-		{% endfor %}
+		{% if object_list %}
+			{% for question in object.choice_set.all %}
+			<div class="">
+				<input type="radio" name="radio-poll">
+				<label>{{ question.option }}</label>
+			</div>
+			{% endfor %}
+		{% else %}
+		<p>NO Polls Avaiable</p>
+		{% endif %}	
 	</form>
 	<a href="#" class="btn btn-primary">Vote</a>
 {% endblock content  %}

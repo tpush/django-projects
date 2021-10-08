@@ -1,21 +1,15 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView
-from .models import Question, Choice
+from django.views.generic import TemplateView, ListView, DetailView
+from .models import Question
 
 
-def home(request):
-    return render(request, 'polls/home.html')
+class HomeTemplateView(TemplateView):
+    template_name = 'polls/home.html'
 
 
-class QuestionListView(ListView):
+class QuestionListView(ListView):     # <app><model>_<viewtype>.html
     model = Question
-    template_name = 'polls/details.html'
-    context_object_name = 'questions'
+    # context_object_name = 'questions'
 
 
 class ChoiceDetailView(DetailView):  # <app><model>_<viewtype>.html
-    model = Choice
-
-
-def results(request):
-    return render(request, 'polls/results.html', {'title': 'results'})
+    model = Question.objects.filter(question_id)
