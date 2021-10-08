@@ -1,19 +1,17 @@
 {% extends 'polls/base.html' %}
 {% block content %}
 	<a class="btn btn-secondary btn-sm" href="{% url 'polls-detail' %}">Back To Polls</a>
-	<h2 class="">Avaiable Options</h2>
+	<h2 class="text-center mb-3">Avaiable Options</h2>
 	<form class="" method="POST">
 		{% csrf_token %}
-		{% if object_list %}
-			{% for question in object.choice_set.all %}
-			<div class="">
-				<input type="radio" name="radio-poll">
-				<label>{{ question.option }}</label>
+			{% for choice in question.choice_set.all %}
+			<div class="card mb-3 p-3">
+				<div class="form-check form-control-lg">
+					<input class="form-check-input" type="radio" name="flexRadioPoll">
+					<label class="form-check-label">{{ choice.option }}</label>
+				</div>
 			</div>
 			{% endfor %}
-		{% else %}
-		<p>NO Polls Avaiable</p>
-		{% endif %}	
 	</form>
 	<a href="#" class="btn btn-primary">Vote</a>
 {% endblock content  %}

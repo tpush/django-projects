@@ -12,4 +12,4 @@ class QuestionListView(ListView):     # <app><model>_<viewtype>.html
 
 
 class ChoiceDetailView(DetailView):  # <app><model>_<viewtype>.html
-    model = Question.objects.filter(question_id)
+    model = Question
