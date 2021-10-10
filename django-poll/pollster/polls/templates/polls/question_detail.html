@@ -2,17 +2,15 @@
 {% block content %}
 	<a class="btn btn-secondary btn-sm" href="{% url 'polls-detail' %}">Back To Polls</a>
 	<h2 class="text-center mb-3">{{ question.title }}</h2>
-	<form class="" action="{% url 'polls-vote' question.id %}" method="POST">
+	<form action="{% url 'polls-vote' question.id %}" method="POST">
 		{% csrf_token %}
 			{% for choice in question.choice_set.all %}
-			<div class="card mb-3 p-3">
 				<div class="form-check form-control-lg">
 					<input class="form-check-input" type="radio" name="choice" id="choice{{ forloop.counter }}", value="{{ choice.id }}">
-					<label class="form-check-label" for="choice{{ forloop.counter }}">{{ choice.option }}</label>
+					<label for="choice{{ forloop.counter }}">{{ choice.option }}</label>
 				</div>
-			</div>
 			{% endfor %}
-			<!-- <input type="submit" value="Vote" class="btn btn-success btn-lg btn-block mt-4" /> -->
-			<a href="{% url 'polls-result' question.id %}" class="btn btn-primary">Vote</a>
+			<input href="{% url 'polls-result' question.id %}" type="submit" value="Vote" class="btn btn-success btn-lg btn-block mt-4" />
+			<!-- <a href="{% url 'polls-result' question.id %}" class="btn btn-primary">Vote</a> -->
 	</form>
 {% endblock content  %}

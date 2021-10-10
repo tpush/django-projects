@@ -8,5 +8,5 @@ urlpatterns = [
     path('polls/<int:pk>/', ChoiceDetailView.as_view(), name='polls-option'),
     path('polls/<int:question_id>/results',
          views.results, name='polls-result'),
-    path('polls/<int:question_id>/votes', views.votes, name='polls-vote'),
+    path('polls/<int:question_id>/votes', views.vote, name='polls-vote'),
 ]
