@@ -1,0 +1,17 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+	<h2 class="text-center mb-3">{{ question.title }}</h2>
+		{% csrf_token %}
+			<div class="card mb-3 p-3">
+				<ul class="list-group mb-5">
+					{% for choice in question.choice_set.all %}
+					<li class="list-group-item fs-5">
+						{{ choice.option }}  <span class="badge badge-success float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+	<a href="{% url 'polls-home' %}" class="btn btn-primary">Back To Polls</a>
+	<a href="{% url 'polls-option' question.id %}" class="btn btn-outline-secondary">Vote Again</a>
+{% endblock content  %}
+

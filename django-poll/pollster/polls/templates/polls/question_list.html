@@ -6,7 +6,7 @@
 		<div class="card-body">
 			<p class="fs-4">{{ question.title }}</p>
 			<a href="{% url 'polls-option' question.pk %}" class="btn btn-primary">Vote Now</a>
-			<a href="#" class="btn btn-secondary">Result</a>
+			<a href="{% url 'polls-result' question.id %}" class="btn btn-secondary">Result</a>
 		</div>
 	</div>
 	{% endfor %}
