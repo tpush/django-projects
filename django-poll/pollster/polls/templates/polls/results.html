@@ -9,7 +9,7 @@
 						</li>
 					{% endfor %}
 				</ul>
-	<a href="{% url 'polls-home' %}" class="btn btn-primary">Back To Polls</a>
+	<a href="{% url 'polls-detail' %}" class="btn btn-primary">Back To Polls</a>
 	<a href="{% url 'polls-option' question.id %}" class="btn btn-outline-secondary">Vote Again</a>
 {% endblock content  %}
 
